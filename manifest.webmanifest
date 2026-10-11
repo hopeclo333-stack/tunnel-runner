@@ -1,0 +1,15 @@
+{
+  "name": "Tunnel Runner",
+  "short_name": "Tunnel Runner",
+  "description": "A bright neon tunnel runner with 8 levels and an endless mode.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#04050d",
+  "theme_color": "#04050d",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

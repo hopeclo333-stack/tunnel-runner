@@ -1,0 +1,8 @@
+Third-party font notice
+
+Tunnel Runner uses the font "Orbitron" by Matt McInerney (The League of Moveable Type).
+Orbitron is free to use, share and include in other works under the SIL Open Font License, Version 1.1.
+Full license text: https://openfontlicense.org/ (also at https://scripts.sil.org/OFL)
+
+The font is embedded in the game's index.html so the game works without an internet connection.
+The font is not sold on its own.

@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Tunnel Runner</title>
+<meta name="description" content="Tunnel Runner: a bright neon tunnel runner with 8 levels and an endless mode. Jump the gaps, grab the gold orbs, earn stars and unlock suits.">
+<meta name="theme-color" content="#04050d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  /* Orbitron (SIL Open Font License), embedded so the game works offline */
+  @font-face {
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+    src: url(data:font/woff2;base64,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) format('woff2');
+  }
+  :root {
+    color-scheme: dark;
+    --hue: 200;
+    --accent: hsl(var(--hue) 100% 62%);
+    --accent-soft: hsl(var(--hue) 100% 60% / 0.4);
+    --bg: #04050d;
+    --text: #eaf0ff;
+    --muted: #8f9bc4;
+    --font: 'Orbitron', 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-block: 8px;
+    padding-inline: 16px;
+    color: var(--text);
+    font-family: var(--font);
+    background: radial-gradient(ellipse 85% 65% at 50% 35%, hsl(var(--hue) 75% 26%) 0%, hsl(calc(var(--hue) + 30) 65% 9%) 62%, var(--bg) 100%);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  /* ---------- stage ---------- */
+  .stage {
+    position: relative;
+    width: min(calc(100vw - 32px), calc((100vh - 56px) * 1.6), 1000px);
+    width: min(calc(100vw - 32px), calc((100dvh - 56px) * 1.6), 1000px);
+    aspect-ratio: 16 / 10;
+    container-type: inline-size;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #03040c;
+    box-shadow:
+      0 0 0 1px hsl(var(--hue) 95% 68% / 0.6),
+      0 0 64px hsl(var(--hue) 100% 60% / 0.45),
+      0 24px 70px rgba(0, 0, 0, 0.55);
+  }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  .stage::after {                       /* soft dark edges, done by the page so the game does not have to draw it every frame */
+    content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(ellipse 70% 88% at 50% 48%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.5) 100%);
+  }
+  .hud, .overlay { z-index: 2; }
+
+  /* ---------- HUD ---------- */
+  .hud { position: absolute; inset: 0; pointer-events: none; transition: opacity 0.3s; }
+  .stage[data-state="ready"] .hud,
+  .stage[data-state="over"] .hud,
+  .stage[data-state="cleared"] .hud { opacity: 0; }
+  .lbl { display: block; font-size: 9px; font-size: clamp(8px, 1.3cqw, 12px); letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+  .hud-score { position: absolute; left: 2.6%; top: 3%; }
+  .hud-score b {
+    display: block; font-size: 28px; font-size: clamp(22px, 5.4cqw, 56px);
+    font-weight: 900; line-height: 1.05; font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 20px var(--accent-soft);
+  }
+  .hud-score small { color: var(--muted); font-size: 11px; font-size: clamp(10px, 1.8cqw, 17px); font-weight: 600; letter-spacing: 0.12em; }
+  .hud-right { position: absolute; right: 2.6%; top: 3%; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .hud-right .best b { display: block; font-size: 16px; font-size: clamp(14px, 2.6cqw, 26px); font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; }
+  .btns { display: flex; gap: 8px; pointer-events: auto; }
+  .btns button {
+    width: 34px; height: 34px; width: clamp(30px, 4.2cqw, 42px); height: clamp(30px, 4.2cqw, 42px);
+    display: grid; place-items: center; padding: 0; cursor: pointer;
+    border-radius: 11px; border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(10, 14, 36, 0.72); color: var(--text);
+    transition: background 0.15s, transform 0.15s;
+  }
+  .btns button:hover { background: rgba(40, 52, 110, 0.7); transform: scale(1.08); }
+  .btns svg { width: 56%; height: 56%; }
+  #btnSound .off { display: none; }
+  #btnSound.muted .on { display: none; }
+  #btnSound.muted .off { display: block; }
+
+  .combo {
+    position: absolute; top: 3%; left: 50%;
+    transform: translateX(-50%) scale(0.85); opacity: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .combo.on { opacity: 1; transform: translateX(-50%) scale(1); }
+  .combo span {
+    font-weight: 900; font-size: 14px; font-size: clamp(12px, 2.6cqw, 26px); letter-spacing: 0.16em;
+    color: hsl(calc(var(--hue) + 40) 100% 72%); text-shadow: 0 0 16px currentColor;
+  }
+  .combo i { display: block; width: 110px; width: clamp(80px, 14cqw, 160px); height: 4px; border-radius: 3px; background: rgba(255, 255, 255, 0.16); overflow: hidden; }
+  .combo u { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--accent), hsl(calc(var(--hue) + 60) 100% 72%)); }
+
+  .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: rgba(255, 255, 255, 0.1); display: none; }
+  .stage[data-mode="level"] .progress { display: block; }
+  .progress u { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), hsl(calc(var(--hue) + 60) 100% 72%)); box-shadow: 0 0 12px var(--accent); }
+
+  .banner { position: absolute; left: 0; right: 0; top: 20%; text-align: center; opacity: 0; pointer-events: none; }
+  .banner b { display: block; font-size: 26px; font-size: clamp(22px, 6cqw, 62px); font-weight: 900; letter-spacing: 0.12em; text-shadow: 0 0 26px var(--accent), 0 0 4px #000; }
+  .banner small { font-size: 11px; font-size: clamp(10px, 2cqw, 20px); letter-spacing: 0.4em; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+  .banner.show { animation: banner 2.3s ease-out forwards; }
+  @keyframes banner {
+    0% { opacity: 0; transform: scale(0.7) translateY(8px); }
+    12% { opacity: 1; transform: scale(1.07); }
+    20% { transform: scale(1); }
+    78% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-14px); }
+  }
+  .tip {
+    position: absolute; left: 0; right: 0; bottom: 4%; text-align: center; opacity: 0; pointer-events: none;
+    font-size: 10px; font-size: clamp(9px, 1.5cqw, 14px); letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; font-weight: 600;
+  }
+  .tip.show { animation: tip 5s ease forwards; }
+  @keyframes tip { 0%, 70% { opacity: 1; } 100% { opacity: 0; } }
+
+  /* ---------- menus ---------- */
+  .overlay {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 3%;
+    background: radial-gradient(ellipse at center, rgba(4, 6, 26, 0.24), rgba(2, 3, 16, 0.68));
+    transition: opacity 0.35s ease, visibility 0.35s;
+  }
+  .overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 10px; gap: clamp(7px, 1.7cqw, 18px); max-height: 100%; width: 100%;
+    animation: rise 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+  }
+  .card.tight { gap: 6px; gap: clamp(5px, 1.1cqw, 12px); }
+  .card.tight .btn.ghost { padding: 0.6em 1.8em; }
+  @keyframes rise { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: none; } }
+  .eyebrow { font-size: 10px; font-size: clamp(8px, 1.5cqw, 14px); letter-spacing: 0.5em; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+  .logo { margin: 0; display: flex; flex-direction: column; line-height: 0.92; font-weight: 900; letter-spacing: 0.08em; font-size: 38px; font-size: clamp(32px, 10cqw, 100px); }
+  .logo .l1 { background: linear-gradient(180deg, #ffffff, #a9b6ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .logo .l2 {
+    background: linear-gradient(90deg, hsl(var(--hue) 100% 66%), hsl(calc(var(--hue) + 60) 100% 72%));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 18px hsl(var(--hue) 100% 55% / 0.6));
+  }
+  .bestline { font-size: 11px; font-size: clamp(9px, 1.7cqw, 16px); letter-spacing: 0.3em; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+  .bestline b { color: var(--text); margin-left: 6px; font-weight: 800; }
+
+  .btn {
+    font-family: inherit; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; border: 0; cursor: pointer;
+    border-radius: 999px; padding: 0.9em 2.8em; font-size: 14px; font-size: clamp(12px, 2.2cqw, 21px);
+    transition: transform 0.15s, background 0.15s;
+  }
+  .btn.play {
+    color: #050818;
+    background: linear-gradient(135deg, hsl(var(--hue) 100% 62%), hsl(calc(var(--hue) + 55) 100% 68%));
+    animation: pulse 1.8s infinite;
+  }
+  .btn.play:hover { transform: scale(1.07); }
+  .btn.play:active { transform: scale(0.97); }
+  .btn.ghost {
+    color: var(--text); background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 0.8em 2em; font-size: 11px; font-size: clamp(10px, 1.7cqw, 16px);
+  }
+  .btn.ghost:hover { background: rgba(255, 255, 255, 0.17); transform: scale(1.05); }
+  .btnrow { display: flex; gap: 10px; gap: clamp(8px, 1.6cqw, 16px); flex-wrap: wrap; justify-content: center; align-items: center; }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 hsl(var(--hue) 100% 60% / 0.55), 0 8px 30px hsl(var(--hue) 100% 50% / 0.45); }
+    70% { box-shadow: 0 0 0 20px hsl(var(--hue) 100% 60% / 0), 0 8px 30px hsl(var(--hue) 100% 50% / 0.45); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--hue) 100% 60% / 0), 0 8px 30px hsl(var(--hue) 100% 50% / 0.45); }
+  }
+
+  .suitblock { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .suits { display: flex; gap: 8px; gap: clamp(6px, 1.3cqw, 14px); justify-content: center; }
+  .suit {
+    width: 26px; height: 26px; width: clamp(24px, 4cqw, 40px); height: clamp(24px, 4cqw, 40px);
+    border-radius: 50%; padding: 0; cursor: pointer; display: grid; place-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.28); background: var(--c); color: #fff;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .suit:hover { transform: scale(1.14); }
+  .suit.sel { border-color: #fff; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18), 0 0 18px var(--c); }
+  .suit.rainbow { background: conic-gradient(#f43f5e, #facc15, #84cc16, #22d3ee, #6366f1, #d946ef, #f43f5e); }
+  .suit.locked { background: #171c3d; border-style: dashed; cursor: not-allowed; }
+  .suit.locked svg { width: 52%; height: 52%; opacity: 0.65; }
+  .suitname { font-size: 10px; font-size: clamp(8px, 1.4cqw, 13px); letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; font-weight: 600; min-height: 1.3em; }
+
+  .keys, .reqs { display: flex; gap: 12px; gap: clamp(10px, 2.4cqw, 28px); flex-wrap: wrap; justify-content: center; color: var(--muted); font-size: 9px; font-size: clamp(8px, 1.4cqw, 13px); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; }
+  kbd { font-family: inherit; font-weight: 700; color: var(--text); background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-bottom-width: 3px; border-radius: 6px; padding: 2px 7px; margin-right: 3px; }
+  .reqs b { color: #fbbf24; font-weight: 800; }
+
+  /* ---------- level select ---------- */
+  .levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; gap: clamp(6px, 1.4cqw, 14px); width: 88%; width: min(88cqw, 820px); }
+  .lv {
+    font-family: inherit; color: var(--text); cursor: pointer; text-align: center; padding: 0.9em 0.3em;
+    border-radius: 14px; border: 1px solid hsl(var(--lh) 95% 68% / 0.7);
+    background: linear-gradient(160deg, hsl(var(--lh) 80% 36% / 0.92), hsl(calc(var(--lh) + 30) 70% 14% / 0.9));
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .lv:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 0 22px hsl(var(--lh) 100% 55% / 0.45); }
+  .lv b { font-size: 22px; font-size: clamp(20px, 5cqw, 52px); font-weight: 900; line-height: 1; color: hsl(var(--lh) 100% 70%); text-shadow: 0 0 16px hsl(var(--lh) 100% 55% / 0.6); }
+  .lv .nm { font-size: 8px; font-size: clamp(7px, 1.5cqw, 14px); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+  .lv .stars { font-size: 11px; font-size: clamp(10px, 2.3cqw, 22px); letter-spacing: 0.08em; line-height: 1.1; }
+  .lv .stars i { font-style: normal; color: #2e3563; }
+  .lv .stars i.on { color: #fbbf24; text-shadow: 0 0 10px rgba(251, 191, 36, 0.7); }
+  .lv small { font-size: 8px; font-size: clamp(7px, 1.4cqw, 13px); color: var(--muted); letter-spacing: 0.14em; font-weight: 600; }
+  .lv.endless {
+    grid-column: 1 / -1; flex-direction: row; justify-content: center; align-items: center; gap: 12px; gap: clamp(8px, 2cqw, 22px);
+    padding: 0.6em 0.5em; border: 2px solid transparent;
+    background: linear-gradient(rgba(14, 16, 56, 0.94), rgba(14, 16, 56, 0.94)) padding-box,
+                linear-gradient(90deg, #22d3ee, #a78bfa, #f472b6, #fb923c, #facc15) border-box;
+  }
+  .lv.endless:hover { box-shadow: 0 0 26px rgba(244, 114, 182, 0.5); }
+  .lv.endless svg { width: 44px; width: clamp(34px, 7cqw, 70px); height: auto; flex: none; }
+  .lv.endless .en { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; }
+  .lv.endless .en b {
+    font-size: 15px; font-size: clamp(13px, 3cqw, 30px); letter-spacing: 0.14em; text-transform: uppercase;
+    background: linear-gradient(90deg, #67e8f9, #c4b5fd, #f9a8d4, #fdba74); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+  }
+  @container (max-width: 430px) {
+    .lv .nm, .keys, .reqs, .next { display: none; }
+    .lv { padding: 0.45em 0.2em; }
+    .lv small { display: none; }
+    .lv.endless { padding: 0.35em; }
+    .lv.endless small { display: block; }
+  }
+
+  /* ---------- results ---------- */
+  .over-title { margin: 0; font-size: 28px; font-size: clamp(26px, 7cqw, 68px); font-weight: 900; letter-spacing: 0.1em; color: #ff6b81; text-shadow: 0 0 30px rgba(255, 80, 110, 0.65); }
+  .over-title.win { color: #a3e635; text-shadow: 0 0 30px rgba(163, 230, 53, 0.55); font-size: 24px; font-size: clamp(20px, 5.6cqw, 54px); }
+  .ribbon {
+    font-weight: 900; letter-spacing: 0.3em; font-size: 12px; font-size: clamp(11px, 2.2cqw, 21px); padding: 0.45em 1.3em; border-radius: 999px;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #2a1700; box-shadow: 0 0 26px rgba(251, 191, 36, 0.65);
+    animation: pop 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) 0.25s both;
+  }
+  @keyframes pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+  .starsbig { display: flex; gap: 8px; gap: clamp(6px, 1.6cqw, 16px); font-size: 34px; font-size: clamp(30px, 8cqw, 84px); line-height: 1; }
+  .starsbig i { font-style: normal; color: #2b3260; animation: starpop 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; animation-delay: var(--d, 0s); }
+  .starsbig i.on { color: #fbbf24; text-shadow: 0 0 26px rgba(251, 191, 36, 0.8); }
+  @keyframes starpop { from { transform: scale(0) rotate(-40deg); opacity: 0; } to { transform: none; opacity: 1; } }
+  .stats { display: flex; gap: 14px; gap: clamp(12px, 3.4cqw, 40px); align-items: flex-end; }
+  .stats div { display: flex; flex-direction: column; align-items: center; }
+  .stats span { font-size: 8px; font-size: clamp(8px, 1.3cqw, 12px); letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+  .stats b { font-size: 18px; font-size: clamp(16px, 3.4cqw, 34px); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .stats .big b { font-size: 34px; font-size: clamp(28px, 7.4cqw, 74px); font-weight: 900; text-shadow: 0 0 24px var(--accent); }
+  .unlock, .next { font-size: 10px; font-size: clamp(9px, 1.6cqw, 15px); letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+  .unlock { color: #a3e635; font-weight: 800; text-shadow: 0 0 14px rgba(163, 230, 53, 0.5); }
+
+  /* ---------- touch controls ---------- */
+  .touch { display: none; gap: 10px; width: min(calc(100vw - 32px), 1000px); }
+  .touch button {
+    flex: 1; height: 64px; border-radius: 16px; font-family: inherit; font-size: 20px; font-weight: 800; letter-spacing: 0.12em;
+    color: var(--text); border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(14, 20, 50, 0.75); touch-action: none;
+  }
+  .touch button:active { background: hsl(var(--hue) 60% 30%); }
+  .touch #btnJ { flex: 1.4; color: #050818; background: linear-gradient(135deg, hsl(var(--hue) 100% 62%), hsl(calc(var(--hue) + 55) 100% 68%)); border: 0; }
+  @media (pointer: coarse) {
+    .touch { display: flex; }
+    .tip, .keys { display: none; }
+    .stage { width: min(calc(100vw - 32px), calc((100vh - 130px) * 1.6)); width: min(calc(100vw - 32px), calc((100dvh - 130px) * 1.6)); }
+  }
+
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @keyframes bannerFade { 0% { opacity: 0; } 10%, 80% { opacity: 1; } 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .btn.play, .ribbon, .card, .starsbig i { animation: none; }
+    .banner.show { animation-name: bannerFade; }
+    .overlay { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage" id="stage" data-state="ready" data-mode="endless">
+    <canvas id="game"></canvas>
+    <div class="hud">
+      <div class="hud-score"><span class="lbl" id="lblScore">Score</span><b id="score">0</b><small id="dist">0 m</small></div>
+      <div class="combo" id="combo"><span id="comboTxt">COMBO x1</span><i><u id="comboBar"></u></i></div>
+      <div class="hud-right">
+        <div class="best"><span class="lbl" id="lblBest">Best</span><b id="best">0</b></div>
+        <div class="btns">
+          <button id="btnSound" class="muted" aria-label="Toggle sound" tabindex="-1">
+            <svg class="on" viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="off" viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M16 9l6 6M22 9l-6 6" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button id="btnPause" aria-label="Pause" tabindex="-1">
+            <svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="banner" id="banner"></div>
+      <div class="tip" id="tip"></div>
+      <div class="progress"><u id="progBar"></u></div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </div>
+  <div class="touch">
+    <button id="btnL">&#9664;</button>
+    <button id="btnJ">JUMP</button>
+    <button id="btnR">&#9654;</button>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---- tunnel geometry (1 unit = 1 tile) ----
+  const N = 16;                   // tiles around the tunnel
+  const TAU = Math.PI * 2;
+  const DA = TAU / N;             // angle of one tile
+  const R = N / TAU;              // tunnel radius, so tiles are about 1 x 1
+  const MAX_D = 50;               // how many slices ahead we draw
+  const NEAR = 0.9;               // nearest depth we draw
+  const CAM_D = 4;                // player's distance in front of the camera
+  const THICK = 0.45;             // how thick the tiles look at a gap's edge
+
+  // ---- game feel ----
+  const GRAV = 26, JUMP = 9.2;
+  const LAT_SPEED = 5.6;          // sideways speed in tiles per second
+  const START_SPEED = 7.5, MAX_SPEED = 18, ACCEL = 0.12;
+  const COMBO_TIME = 7;           // seconds to land another gap before the combo drops
+  const ZONE_LEN = 400;           // metres per zone (endless mode)
+  const MILE = 250;               // milestone every 250 m (endless mode)
+  const STAR2 = 0.6, STAR3 = 0.9; // share of orbs needed for 2 and 3 stars
+
+  const ZONES = [
+    { name: 'Neon Drift', hue: 200 },
+    { name: 'Void Run', hue: 268 },
+    { name: 'Hot Pink', hue: 322 },
+    { name: 'Solar Flare', hue: 28 },
+    { name: 'Toxic Nebula', hue: 140 },
+  ];
+  const SKINS = [
+    { id: 'cyan', name: 'Cyan', color: '#38bdf8', need: 0 },
+    { id: 'lime', name: 'Lime', color: '#a3e635', need: 150 },
+    { id: 'pink', name: 'Neon Pink', color: '#f472b6', need: 400 },
+    { id: 'fire', name: 'Fire', color: '#fb923c', need: 800 },
+    { id: 'gold', name: 'Gold', color: '#facc15', need: 1500 },
+    { id: 'rainbow', name: 'Rainbow', color: '#ffffff', need: 2500, rainbow: true },
+  ];
+
+  // Each level is the same course every time (seeded), so players can learn it.
+  // len = metres, v0/vMax/accel = speed in tiles per second, w = path width range,
+  // weights = how often each kind of section shows up.
+  const LEVELS = [
+    { id: 1, name: 'First Steps',  len: 250,  v0: 7,   vMax: 8.5,  accel: 0.04, w: [5, 6], maxGap: 2, diff: 0,    hue: 200, seed: 1101, weights: { straight: 5, curve: 3, gap: 2, holes: 0 } },
+    { id: 2, name: 'Gap Jump',     len: 350,  v0: 7.5, vMax: 10,   accel: 0.05, w: [4, 5], maxGap: 2, diff: 0.15, hue: 145, seed: 2202, weights: { straight: 2, curve: 2, gap: 5, holes: 0 } },
+    { id: 3, name: 'Twist & Turn', len: 450,  v0: 8,   vMax: 11,   accel: 0.06, w: [4, 5], maxGap: 2, diff: 0.3,  hue: 268, seed: 3303, weights: { straight: 1, curve: 6, gap: 2, holes: 1 } },
+    { id: 4, name: 'Hole Punch',   len: 500,  v0: 8.5, vMax: 12,   accel: 0.07, w: [3, 5], maxGap: 3, diff: 0.4,  hue: 322, seed: 4404, weights: { straight: 1, curve: 2, gap: 2, holes: 5 } },
+    { id: 5, name: 'Solar Run',    len: 600,  v0: 9,   vMax: 13.5, accel: 0.08, w: [3, 4], maxGap: 3, diff: 0.55, hue: 28,  seed: 5505, weights: { straight: 2, curve: 3, gap: 3, holes: 3 } },
+    { id: 6, name: 'Thin Ice',     len: 700,  v0: 10,  vMax: 15,   accel: 0.09, w: [2, 3], maxGap: 3, diff: 0.7,  hue: 175, seed: 6606, weights: { straight: 2, curve: 3, gap: 3, holes: 2 } },
+    { id: 7, name: 'Speed Demon',  len: 800,  v0: 12,  vMax: 18,   accel: 0.12, w: [3, 4], maxGap: 5, diff: 0.85, hue: 355, seed: 7707, weights: { straight: 2, curve: 3, gap: 3, holes: 3 } },
+    { id: 8, name: 'Final Run',    len: 1200, v0: 11,  vMax: 18,   accel: 0.08, w: [2, 4], maxGap: 6, diff: 1,    hue: 48,  seed: 8808, weights: { straight: 2, curve: 3, gap: 3, holes: 3 } },
+  ];
+  const DEFAULT_WEIGHTS = { straight: 28, curve: 32, gap: 22, holes: 18 };
+
+  const $ = (id) => document.getElementById(id);
+  const canvas = $('game');
+  const ctx = canvas.getContext('2d');
+  const stage = $('stage');
+  const overlay = $('overlay');
+  const scoreEl = $('score'), distEl = $('dist'), bestEl = $('best');
+  const lblScore = $('lblScore'), lblBest = $('lblBest'), progBar = $('progBar');
+  const comboEl = $('combo'), comboTxt = $('comboTxt'), comboBar = $('comboBar');
+  const bannerEl = $('banner'), tipEl = $('tip');
+  const btnSound = $('btnSound'), btnPause = $('btnPause');
+  const root = document.documentElement;
+
+  // ---- helpers ----
+  let rng = Math.random;          // random numbers; seeded in levels so they are the same every time
+  const mod = (a, n) => ((a % n) + n) % n;
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const rand = (a, b) => a + Math.floor(rng() * (b - a + 1));
+  const wrapPi = (a) => mod(a + Math.PI, TAU) - Math.PI;
+  const wrapDeg = (a) => mod(a + 180, 360) - 180;
+  const wrapN = (d) => mod(d + N / 2, N) - N / 2;
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  const fmtTime = (t) => { const m = Math.floor(t / 60), s = t % 60; return m + ':' + (s < 10 ? '0' : '') + s.toFixed(1); };
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, String(v)); } catch (e) {} },
+  };
+
+  let W = 800, H = 500, f = 330, baseF = 330, cx = 400, cy = 190;
+  let quality = 0, drawD = 46, canvasScale = 1;           // quality 0 = full, 1 = lighter, 2 = lightest (picked automatically)
+  const DRAW_D = [46, 36, 28];                             // how far ahead we draw at each quality
+  const px = (n) => n * W / 800;
+  function resize() {
+    const dpr = Math.min(quality === 0 ? 1.5 : 1, window.devicePixelRatio || 1);
+    canvasScale = dpr;
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    baseF = 0.66 * H;             // focal length
+    f = baseF;
+    cx = W / 2;
+    cy = 0.38 * H;                // vanishing point
+  }
+
+  // ---- state ----
+  let state = 'ready';            // ready | running | paused | dying | won | cleared | over
+  let mode = 'endless', level = null, levelIdx = 0, view = 'home';
+  let slices, genIndex, pending, gen, cleanIdx;
+  let cfgV0 = START_SPEED, cfgVMax = MAX_SPEED, cfgAccel = ACCEL;
+  let camZ = 0, cam = 0, speed = START_SPEED, dyingT = 0, winT = 0, time = 0, runT = 0, runPhase = 0;
+  let deathDist = 0, deathBonus = 0, deathPct = 0, canRestartAt = 0;
+  let bonus = 0, combo = 0, comboT = 0, curZone = 0, nextMile = MILE;
+  let orbCount = 0, orbTotal = 0, halfShown = false;
+  let airVoid = 0, lastZi = 0, squash = 0, shake = 0, flash = 0, streakS = 0, jumpBuf = 0;
+  let curHue = 200, targetHue = 200, lastHueCss = -1, lastHueT = 0;
+  let lastScore = -1, lastComboShown = -1, lastProg = '';
+  const p = { s: 0.5, h: 0, vy: 0, vs: 0, grounded: true, coyote: 0 };
+  const keys = { left: false, right: false, jump: false };
+  const parts = [], trail = [], popups = [];
+  let bestScore = Number(store.get('tr-best', 0)) || 0;
+  let skinId = store.get('tr-skin', 'cyan');
+  let muted = store.get('tr-muted', '1') !== '0';   // sound is off until you turn it on
+  let levelData = {};
+  try { levelData = JSON.parse(store.get('tr-levels', '{}')); } catch (e) { levelData = {}; }
+  if (!levelData || typeof levelData !== 'object' || Array.isArray(levelData)) levelData = {};   // ignore saved data that looks wrong
+  function cleanEntry(e) {
+    if (!e || typeof e !== 'object') return { stars: 0, orbs: 0, time: 1e9 };
+    const stars = Number(e.stars), orbs = Number(e.orbs), time = Number(e.time);
+    return { stars: stars >= 0 && stars <= 3 ? Math.floor(stars) : 0, orbs: orbs >= 0 && orbs <= 1 ? orbs : 0, time: time > 0 ? time : 1e9 };
+  }
+  let lastResult = null;
+
+  const stars = Array.from({ length: 160 }, () => ({
+    a: Math.random() * TAU,
+    r: R * (1.4 + Math.random() * 7),
+    z: 3 + Math.random() * 90,
+  }));
+
+  // ---- progress & suits ----
+  const levelStars = (L) => cleanEntry(levelData[L.id]).stars;
+  const totalStars = () => LEVELS.reduce((a, L) => a + levelStars(L), 0);
+  const xp = () => bestScore + totalStars() * 100;          // endless points plus 100 per star
+  const skinById = (id) => SKINS.find((s) => s.id === id) || SKINS[0];
+  const isUnlocked = (s) => xp() >= s.need;
+  const currentSkin = () => { const s = skinById(skinId); return isUnlocked(s) ? s : SKINS[0]; };
+  const skinColor = () => { const s = currentSkin(); return s.rainbow ? 'hsl(' + ((time * 140) % 360).toFixed(0) + ',90%,62%)' : s.color; };
+  function unlocksSince(prevXp) {
+    const got = SKINS.filter((s) => s.need > prevXp && s.need <= xp());
+    if (got.length) { skinId = got[got.length - 1].id; store.set('tr-skin', skinId); }
+    return got;
+  }
+
+  // ---- sound (tiny synth, off by default) ----
+  let actx = null;
+  function tone(freq, dur, type, vol, slide, delay) {
+    if (muted) return;
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') { const rp = actx.resume(); if (rp && rp.catch) rp.catch(function () {}); }
+      const t = actx.currentTime + (delay || 0);
+      const o = actx.createOscillator(), g = actx.createGain();
+      o.type = type || 'sine';
+      o.frequency.setValueAtTime(freq, t);
+      if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(30, freq * slide), t + dur);
+      g.gain.setValueAtTime(vol || 0.06, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(actx.destination);
+      o.start(t); o.stop(t + dur + 0.03);
+    } catch (e) {}
+  }
+  const sfx = {
+    jump() { tone(300, 0.16, 'square', 0.03, 2.2); },
+    land(v) { tone(120, 0.1, 'sine', clamp(0.03 + v * 0.004, 0.03, 0.12), 0.6); },
+    clear(m) { tone(520, 0.1, 'triangle', 0.06); tone(780, 0.14, 'triangle', 0.06, 1, 0.08); if (m > 1) tone(1040, 0.18, 'triangle', 0.05, 1, 0.16); },
+    orb(n) { tone(700 + (n % 8) * 70, 0.09, 'sine', 0.05, 1.3); },
+    die() { tone(320, 0.7, 'sawtooth', 0.06, 0.15); },
+    zone() { [392, 523, 659].forEach((fq, i) => tone(fq, 0.25, 'triangle', 0.05, 1, i * 0.09)); },
+    best() { [523, 659, 784, 1047].forEach((fq, i) => tone(fq, 0.22, 'triangle', 0.06, 1, i * 0.1)); },
+    mile() { tone(880, 0.12, 'triangle', 0.045); tone(1175, 0.16, 'triangle', 0.045, 1, 0.09); },
+  };
+
+  // ---- level generation ----
+  // Each slice is a ring of N tiles (1 = tile, 0 = empty space). A slice can also carry orbs.
+  const speedAtZ = (z) => Math.min(cfgVMax, Math.sqrt(cfgV0 * cfgV0 + 2 * cfgAccel * Math.max(0, z)));
+  const genPos = () => genIndex + pending.length;
+
+  function pathSlice(c, w) {
+    const a = new Uint8Array(N);
+    if (w >= N) { a.fill(1); return a; }
+    const start = Math.round(c - w / 2);
+    for (let i = 0; i < w; i++) a[mod(start + i, N)] = 1;
+    return a;
+  }
+  const pathCenter = (c, w) => (w >= N ? c : Math.round(c - w / 2) + w / 2);
+
+  function pushPath(len, drift) {
+    drift = drift || 0;
+    const base = pending.length, os = [];
+    for (let i = 0; i < len; i++) {
+      gen.c = mod(gen.c + drift, N);
+      pending.push(pathSlice(gen.c, gen.w));
+      os.push(pathCenter(gen.c, gen.w));
+    }
+    return { base, os };
+  }
+
+  function addOrb(rel, z, s, h) {
+    const sl = pending[rel];
+    if (!sl) return;
+    (sl.orbs || (sl.orbs = [])).push({ z, s: mod(s, N), h, taken: false });
+  }
+
+  function orbLine(path) {                    // a short line of orbs along a stretch of path
+    if (!level || path.os.length < 7 || rng() > 0.85) return;
+    const n = rand(3, 6);
+    const j0 = rand(1, Math.max(1, path.os.length - 2 - Math.ceil(n * 1.5)));
+    for (let m = 0; m < n; m++) {
+      const j = j0 + Math.round(m * 1.5);
+      if (j >= path.os.length) break;
+      addOrb(path.base + j, genIndex + path.base + j + 0.5, path.os[j], 0.15);
+    }
+  }
+
+  function pickChunk(wts) {
+    let tot = 0;
+    for (const k in wts) tot += wts[k];
+    let r = rng() * tot;
+    for (const k in wts) { r -= wts[k]; if (r < 0) return k; }
+    return 'straight';
+  }
+
+  function newChunk() {
+    const z = genPos();
+    const v = speedAtZ(z);                     // how fast you will be going when you get here
+    const diff = level ? level.diff : Math.min(1, z / 1500);
+    const jumpDist = v * 2 * JUMP / GRAV;
+    let maxGap = clamp(Math.floor(0.6 * jumpDist), 1, 7);
+    if (level) maxGap = Math.min(maxGap, level.maxGap);
+    gen.w = level ? rand(level.w[0], level.w[1]) : clamp(Math.round(4.6 - 2.6 * diff + (rng() - 0.5) * 1.5), 2, 6);
+    let type = pickChunk(level ? level.weights : DEFAULT_WEIGHTS);
+    if (type === 'holes' && gen.w < 3) type = 'straight';
+
+    if (type === 'straight') {
+      orbLine(pushPath(rand(5, 13)));
+    } else if (type === 'curve') {             // the tunnel turns
+      const maxRate = 0.75 * LAT_SPEED / v;
+      const rate = maxRate * (0.35 + 0.65 * rng());
+      orbLine(pushPath(rand(10, 26), rng() < 0.5 ? -rate : rate));
+    } else if (type === 'gap') {               // a gap to jump over, with an arc of orbs above it
+      const runway = Math.max(4, Math.ceil(v * 0.5));       // faster = more time to react
+      const a = pushPath(runway);
+      const g = rand(1, maxGap);
+      for (let i = 0; i < g; i++) pending.push(new Uint8Array(N));
+      pushPath(runway + 1);
+      if (level) {
+        const T = 2 * JUMP / GRAV, D = v * T;
+        const take = a.base + runway - (D - g) / 2;         // where a good jump starts
+        for (let j = 1; j <= 5; j++) {
+          const t = T * j / 6;
+          const zr = take + v * t;
+          addOrb(Math.floor(zr), genIndex + zr, a.os[a.os.length - 1], JUMP * t - 0.5 * GRAV * t * t);
+        }
+      }
+    } else {                                   // holes in the path
+      let last = -99;
+      const base = pending.length, os = [];
+      const spacing = Math.max(4, Math.ceil(v * 0.75) + 1);   // room to land from a jump
+      for (let i = 0; i < 16; i++) {
+        const s = pathSlice(gen.c, gen.w);
+        os.push(pathCenter(gen.c, gen.w));
+        if (i - last >= spacing && rng() < 0.3 + 0.2 * diff) {
+          const present = [];
+          for (let k = 0; k < N; k++) if (s[k]) present.push(k);
+          s[present[rand(0, present.length - 1)]] = 0;
+          last = i;
+        }
+        pending.push(s);
+      }
+      orbLine({ base, os });
+    }
+  }
+
+  function ensureGen(upTo) {
+    while (genIndex <= upTo) {
+      let sl;
+      if (level && genIndex >= level.len) {    // after the finish line: a safe, fully lit tunnel
+        pending.length = 0;
+        sl = new Uint8Array(N).fill(1);
+        if (genIndex < level.len + 2) sl.finish = true;
+      } else {
+        if (!pending.length) newChunk();
+        sl = pending.shift();
+      }
+      slices.set(genIndex++, sl);
+    }
+  }
+
+  function cleanup() {
+    const keep = Math.floor(camZ) - 3;
+    while (cleanIdx < keep) slices.delete(cleanIdx++);
+  }
+
+  function tileAt(i, s) {
+    const sl = slices.get(i);
+    return !!sl && sl[mod(Math.floor(s), N)] === 1;
+  }
+
+  // ---- effects ----
+  function burst(x, y, n, color, spd, life, size, add, grav) {
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * TAU, s = spd * (0.3 + Math.random() * 0.7);
+      parts.push({
+        x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - spd * 0.25,
+        life, max: life, size: size * (0.6 + Math.random() * 0.8), color, add: add !== false, grav: grav || 0,
+      });
+    }
+    const cap = quality === 0 ? 500 : quality === 1 ? 300 : 150;
+    if (parts.length > cap) parts.splice(0, parts.length - cap);
+  }
+
+  function confetti(n) {
+    for (let i = 0; i < n; i++) {
+      const hue = Math.floor(Math.random() * 360);
+      parts.push({
+        x: Math.random() * W, y: -10 - Math.random() * H * 0.4,
+        vx: (Math.random() - 0.5) * px(140), vy: px(60) + Math.random() * px(160),
+        life: 2.6, max: 2.6, size: px(3 + Math.random() * 3), color: 'hsl(' + hue + ',90%,60%)', add: false, grav: px(90),
+      });
+    }
+  }
+
+  function popup(text, x, y, color) {
+    popups.push({ text, x, y, life: 1.1, max: 1.1, color: color || '#fff' });
+  }
+
+  function playerPos(h) {
+    const k = f / CAM_D, a = p.s * DA - cam, r = R - (h === undefined ? p.h : h);
+    return { x: cx + r * Math.sin(a) * k, y: cy + r * Math.cos(a) * k, k, a };
+  }
+
+  function updateFx(dt) {
+    shake *= Math.exp(-9 * dt);
+    flash *= Math.exp(-7 * dt);
+    squash *= Math.exp(-11 * dt);
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const q = parts[i];
+      q.life -= dt;
+      if (q.life <= 0) { parts.splice(i, 1); continue; }
+      q.vy += q.grav * dt;
+      q.x += q.vx * dt;
+      q.y += q.vy * dt;
+    }
+    for (let i = trail.length - 1; i >= 0; i--) {
+      trail[i].life -= dt * 2.4;
+      if (trail[i].life <= 0) trail.splice(i, 1);
+    }
+    for (let i = popups.length - 1; i >= 0; i--) {
+      const q = popups[i];
+      q.life -= dt;
+      q.y -= px(46) * dt;
+      if (q.life <= 0) popups.splice(i, 1);
+    }
+  }
+
+  function moveStars(dt, v) {
+    for (const s of stars) {
+      s.z -= v * dt;
+      if (s.z < 1.2) { s.z += 90; s.a = Math.random() * TAU; }
+    }
+  }
+
+  function updateHue(dt, rate) {
+    curHue = mod(curHue + wrapDeg(targetHue - curHue) * Math.min(1, dt * rate), 360);
+    const hr = Math.round(curHue);              // the page colours only change a few times a second, which keeps the page light
+    if (lastHueCss < 0 || (Math.abs(wrapDeg(hr - lastHueCss)) >= 2 && time - lastHueT > 0.08)) {
+      lastHueCss = hr;
+      lastHueT = time;
+      root.style.setProperty('--hue', hr);
+    }
+  }
+
+  // ---- HUD & banners ----
+  function banner(big, small) {
+    bannerEl.innerHTML = '<b>' + big + '</b>' + (small ? '<small>' + small + '</small>' : '');
+    bannerEl.classList.remove('show');
+    void bannerEl.offsetWidth;
+    bannerEl.classList.add('show');
+  }
+
+  function setHudMode() {
+    stage.dataset.mode = mode;
+    if (level) {
+      lblScore.textContent = 'Orbs';
+      lblBest.textContent = 'Level ' + (levelIdx + 1);
+      bestEl.innerHTML = esc(level.name);
+    } else {
+      lblScore.textContent = 'Score';
+      lblBest.textContent = 'Best';
+      bestEl.textContent = bestScore;
+    }
+    tipEl.innerHTML = level ? '&larr; &rarr; Move &nbsp;&middot;&nbsp; Space Jump &nbsp;&middot;&nbsp; Grab the gold orbs for stars'
+                            : '&larr; &rarr; Move &nbsp;&middot;&nbsp; Space Jump over gaps';
+    lastScore = -1;
+  }
+
+  function updateHud() {
+    const d = Math.floor(camZ);
+    if (level) {
+      const zp = camZ + CAM_D;
+      const key = orbCount * 100000 + Math.floor(zp);
+      if (key !== lastScore) {
+        lastScore = key;
+        scoreEl.textContent = orbCount + '/' + orbTotal;
+        distEl.textContent = Math.min(level.len, Math.floor(zp)) + ' / ' + level.len + ' m';
+      }
+      const pw = (clamp(zp / level.len, 0, 1) * 100).toFixed(1) + '%';
+      if (pw !== lastProg) { lastProg = pw; progBar.style.width = pw; }
+      comboEl.classList.remove('on');
+      return;
+    }
+    const sc = d + bonus;
+    if (sc !== lastScore) {
+      lastScore = sc;
+      scoreEl.textContent = sc;
+      distEl.textContent = d + ' m';
+    }
+    const on = combo > 0 && state === 'running';
+    comboEl.classList.toggle('on', on);
+    if (on) {
+      const m = Math.min(5, combo);
+      if (m !== lastComboShown) { lastComboShown = m; comboTxt.textContent = 'COMBO x' + m; }
+      comboBar.style.width = (comboT / COMBO_TIME * 100).toFixed(0) + '%';
+    }
+  }
+
+  // ---- menus ----
+  const INF_SVG = '<svg viewBox="0 0 48 24" aria-hidden="true"><defs><linearGradient id="infg" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#f472b6"/><stop offset="1" stop-color="#facc15"/></linearGradient></defs>' +
+    '<path d="M24 12C30 2 45 2 45 12S30 22 24 12 18 2 3 12 18 22 24 12Z" fill="none" stroke="url(#infg)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const LOCK = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 9h-1V7a4 4 0 00-8 0v2H7a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2v-8a2 2 0 00-2-2zm-7-2a2 2 0 014 0v2h-4V7z"/></svg>';
+
+  function suitBlockHTML() {
+    const cur = currentSkin();
+    const btns = SKINS.map((s) => {
+      const un = isUnlocked(s);
+      return '<button class="suit' + (s.id === cur.id ? ' sel' : '') + (un ? '' : ' locked') + (s.rainbow ? ' rainbow' : '') +
+        '" data-skin="' + s.id + '" style="--c:' + s.color + '" aria-label="' + s.name + '" tabindex="-1">' + (un ? '' : LOCK) + '</button>';
+    }).join('');
+    return '<div class="suitblock"><div class="suits">' + btns + '</div><div class="suitname" id="suitName">Suit: ' + cur.name + '</div></div>';
+  }
+
+  function refreshSuits() {
+    const el = overlay.querySelector('.suitblock');
+    if (el) el.outerHTML = suitBlockHTML();
+  }
+
+  function nextSuitHTML() {
+    const next = SKINS.find((s) => s.need > xp());
+    return next ? '<div class="next">Next suit: ' + next.name + ' at ' + next.need + ' pts &middot; ' + (next.need - xp()) + ' to go</div>' : '';
+  }
+
+  function unlockHTML(got) {
+    return got.length ? '<div class="unlock">New suit unlocked: ' + got[got.length - 1].name + ' &mdash; equipped!</div>' : '';
+  }
+
+  let hideTimer = 0;
+  function showOverlay(html, cls) {
+    clearTimeout(hideTimer);
+    overlay.innerHTML = '<div class="card' + (cls ? ' ' + cls : '') + '">' + html + '</div>';
+    overlay.classList.remove('hidden');
+  }
+
+  function hideOverlay() {
+    overlay.classList.add('hidden');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => { if (overlay.classList.contains('hidden')) overlay.innerHTML = ''; }, 500);   // an unseen menu should not keep animating
+  }
+
+  function showMenu() {
+    view = 'home';
+    const bits = [];
+    if (bestScore > 0) bits.push('Endless best<b>' + bestScore + '</b>');
+    if (totalStars() > 0) bits.push('Stars<b>' + totalStars() + '/' + LEVELS.length * 3 + '</b>');
+    showOverlay(
+      '<div class="eyebrow">Endless tunnel run</div>' +
+      '<h1 class="logo"><span class="l1">TUNNEL</span><span class="l2">RUNNER</span></h1>' +
+      (bits.length ? '<div class="bestline">' + bits.join(' &nbsp;&middot;&nbsp; ') + '</div>' : '') +
+      suitBlockHTML() +
+      '<div class="btnrow"><button class="btn play" data-act="levels" tabindex="-1">Levels</button>' +
+      '<button class="btn ghost" data-act="endless" tabindex="-1">Endless</button></div>' +
+      '<div class="keys"><span><kbd>&larr;</kbd><kbd>&rarr;</kbd>Move</span><span><kbd>Space</kbd>Jump</span><span><kbd>P</kbd>Pause</span><span><kbd>M</kbd>Sound</span></div>'
+    );
+  }
+
+  function showLevels() {
+    view = 'levels';
+    const cards = LEVELS.map((L, i) => {
+      const st = levelStars(L);
+      const s = [1, 2, 3].map((n) => '<i' + (n <= st ? ' class="on"' : '') + '>&#9733;</i>').join('');
+      return '<button class="lv" data-level="' + i + '" style="--lh:' + L.hue + '" tabindex="-1">' +
+        '<b>' + (i + 1) + '</b><span class="nm">' + esc(L.name) + '</span><span class="stars">' + s + '</span><small>' + L.len + ' m</small></button>';
+    }).join('');
+    const endless = '<button class="lv endless" data-act="endless" tabindex="-1">' + INF_SVG +
+      '<span class="en"><b>Endless</b><small>' + (bestScore > 0 ? 'Your best: ' + bestScore : 'No finish line. How far can you go?') + '</small></span></button>';
+    showOverlay(
+      '<div class="eyebrow">Choose a level &nbsp;&middot;&nbsp; &#9733; ' + totalStars() + '/' + LEVELS.length * 3 + '</div>' +
+      '<div class="levels">' + cards + endless + '</div>' +
+      '<div class="reqs"><span><b>&#9733;</b> Finish</span><span><b>&#9733;&#9733;</b> ' + Math.round(STAR2 * 100) + '% of orbs</span><span><b>&#9733;&#9733;&#9733;</b> ' + Math.round(STAR3 * 100) + '% of orbs</span></div>' +
+      '<div class="btnrow"><button class="btn ghost" data-act="home" tabindex="-1">Back</button></div>',
+      'tight'
+    );
+  }
+
+  function showPause() {
+    showOverlay(
+      '<h2 class="over-title" style="color:#fff;text-shadow:0 0 30px var(--accent)">PAUSED</h2>' +
+      '<button class="btn play" data-act="resume" tabindex="-1">Resume</button>' +
+      '<div class="btnrow"><button class="btn ghost" data-act="retry" tabindex="-1">Restart</button>' +
+      '<button class="btn ghost" data-act="quit" tabindex="-1">' + (level ? 'Levels' : 'Menu') + '</button></div>' +
+      '<div class="keys"><span><kbd>P</kbd>Resume</span><span><kbd>M</kbd>Sound</span></div>'
+    );
+  }
+
+  function showOver() {
+    const r = lastResult;
+    if (r.mode === 'level') {
+      showOverlay(
+        '<div class="eyebrow">Level ' + (levelIdx + 1) + ' &middot; ' + esc(level.name) + '</div>' +
+        '<h2 class="over-title">YOU FELL!</h2>' +
+        '<div class="stats"><div><span>Progress</span><b>' + r.pct + '%</b></div><div><span>Orbs</span><b>' + r.orbs + '/' + r.total + '</b></div></div>' +
+        '<div class="btnrow"><button class="btn play" data-act="retry" tabindex="-1">Try again</button>' +
+        '<button class="btn ghost" data-act="quit" tabindex="-1">Levels</button></div>'
+      );
+      return;
+    }
+    showOverlay(
+      '<div class="eyebrow">Run over</div>' +
+      '<h2 class="over-title">YOU FELL!</h2>' +
+      (r.newBest ? '<div class="ribbon">&#9733; NEW BEST &#9733;</div>' : '') +
+      '<div class="stats"><div><span>Distance</span><b>' + r.dist + ' m</b></div>' +
+      '<div class="big"><span>Score</span><b>' + r.score + '</b></div>' +
+      '<div><span>Bonus</span><b>+' + r.bonus + '</b></div></div>' +
+      (r.unlocked.length ? unlockHTML(r.unlocked) : nextSuitHTML()) +
+      suitBlockHTML() +
+      '<div class="btnrow"><button class="btn play" data-act="retry" tabindex="-1">Play again</button>' +
+      '<button class="btn ghost" data-act="quit" tabindex="-1">Menu</button></div>'
+    );
+  }
+
+  function showCleared() {
+    setState('cleared');
+    canRestartAt = performance.now() + 600;
+    const r = lastResult;
+    const hasNext = levelIdx + 1 < LEVELS.length;
+    const starsHTML = [1, 2, 3].map((n) => '<i' + (n <= r.stars ? ' class="on"' : '') + ' style="--d:' + (0.2 + n * 0.25).toFixed(2) + 's">&#9733;</i>').join('');
+    showOverlay(
+      '<div class="eyebrow">Level ' + (levelIdx + 1) + ' &middot; ' + esc(level.name) + '</div>' +
+      '<h2 class="over-title win">LEVEL COMPLETE</h2>' +
+      '<div class="starsbig">' + starsHTML + '</div>' +
+      '<div class="stats"><div><span>Orbs</span><b>' + r.orbs + '/' + r.total + '</b></div>' +
+      '<div><span>Time</span><b>' + fmtTime(r.time) + '</b></div></div>' +
+      (r.newTime ? '<div class="unlock">New best time!</div>' : '') +
+      (r.unlocked.length ? unlockHTML(r.unlocked) : nextSuitHTML()) +
+      '<div class="btnrow">' +
+      (hasNext ? '<button class="btn play" data-act="next" tabindex="-1">Next level</button>' : '<button class="btn play" data-act="quit" tabindex="-1">Levels</button>') +
+      '<button class="btn ghost" data-act="retry" tabindex="-1">Replay</button>' +
+      (hasNext ? '<button class="btn ghost" data-act="quit" tabindex="-1">Levels</button>' : '') + '</div>'
+    );
+  }
+
+  // ---- game flow ----
+  function setState(s) {
+    state = s;
+    stage.dataset.state = s;
+  }
+
+  function reset() {
+    rng = level ? mulberry32(level.seed) : Math.random;
+    cfgV0 = level ? level.v0 : START_SPEED;
+    cfgVMax = level ? level.vMax : MAX_SPEED;
+    cfgAccel = level ? level.accel : ACCEL;
+    slices = new Map();
+    pending = [];
+    genIndex = 0;
+    cleanIdx = 0;
+    camZ = 0;
+    speed = cfgV0;
+    dyingT = 0; winT = 0; runT = 0; halfShown = false;
+    bonus = 0; combo = 0; comboT = 0; curZone = 0; nextMile = MILE;
+    airVoid = 0; lastZi = Math.floor(CAM_D); squash = 0; shake = 0; flash = 0; lastScore = -1; lastProg = ''; jumpBuf = 0;
+    parts.length = 0; trail.length = 0; popups.length = 0;
+    p.s = 0.5; p.h = 0; p.vy = 0; p.vs = 0; p.grounded = true; p.coyote = 0.1;
+    cam = p.s * DA;
+    curHue = targetHue = level ? level.hue : ZONES[0].hue;
+    gen = { c: 0.5, w: 7 };
+    pushPath(20);                            // a wide, safe start
+    ensureGen(level ? level.len + 70 : MAX_D + 4);   // levels are built in full, so we can count the orbs
+    orbCount = 0; orbTotal = 0;
+    if (level) {
+      for (let i = 0; i < level.len; i++) {
+        const sl = slices.get(i);
+        if (sl && sl.orbs) orbTotal += sl.orbs.length;
+      }
+    }
+  }
+
+  function startRun(m, idx) {
+    mode = m;
+    levelIdx = idx || 0;
+    level = m === 'level' ? LEVELS[levelIdx] : null;
+    if (m === 'level' && !level) { goMenu('levels'); return; }
+    reset();
+    setHudMode();
+    setState('running');
+    hideOverlay();
+    tipEl.classList.remove('show');
+    void tipEl.offsetWidth;
+    tipEl.classList.add('show');
+    updateHud();
+    if (level) banner('LEVEL ' + (levelIdx + 1), esc(level.name));
+  }
+
+  function goMenu(v) {
+    mode = 'endless';
+    level = null;
+    reset();
+    setHudMode();
+    setState('ready');
+    if (v === 'levels') showLevels(); else showMenu();
+  }
+
+  function pause() {
+    if (state === 'running') {
+      setState('paused');
+      showPause();
+    } else if (state === 'paused') {
+      setState('running');
+      hideOverlay();
+    }
+  }
+
+  function die() {
+    setState('dying');
+    dyingT = 0;
+    deathDist = Math.floor(camZ);
+    deathBonus = bonus;
+    deathPct = level ? Math.min(99, Math.floor((camZ + CAM_D) / level.len * 100)) : 0;
+    combo = 0;
+    shake = 14;
+    flash = 0.45;
+    sfx.die();
+    const ps = playerPos();
+    burst(ps.x, ps.y - px(34), 30, skinColor(), px(320), 0.9, px(3.4), true, px(320));
+  }
+
+  function finish() {
+    setState('over');
+    canRestartAt = performance.now() + 600;
+    if (level) {
+      lastResult = { mode: 'level', pct: deathPct, orbs: orbCount, total: orbTotal };
+      showOver();
+      return;
+    }
+    const prevXp = xp();
+    const score = deathDist + deathBonus;
+    const newBest = score > bestScore;
+    let unlocked = [];
+    if (newBest) {
+      bestScore = score;
+      store.set('tr-best', bestScore);
+      bestEl.textContent = bestScore;
+      unlocked = unlocksSince(prevXp);
+    }
+    lastResult = { mode: 'endless', dist: deathDist, bonus: deathBonus, score, newBest: newBest && score > 0, unlocked };
+    showOver();
+    if (lastResult.newBest) {
+      sfx.best();
+      confetti(90);
+    }
+  }
+
+  function win() {
+    setState('won');
+    winT = 0;
+    const pct = orbTotal ? orbCount / orbTotal : 1;
+    const earned = 1 + (pct >= STAR2 ? 1 : 0) + (pct >= STAR3 ? 1 : 0);
+    const prev = cleanEntry(levelData[level.id]);
+    const prevXp = xp();
+    levelData[level.id] = { stars: Math.max(prev.stars, earned), orbs: Math.max(prev.orbs, pct), time: Math.min(prev.time, runT) };
+    store.set('tr-levels', JSON.stringify(levelData));
+    lastResult = { mode: 'level', stars: earned, orbs: orbCount, total: orbTotal, time: runT, newTime: runT < prev.time && prev.stars > 0, unlocked: unlocksSince(prevXp) };
+    comboEl.classList.remove('on');
+    progBar.style.width = '100%';
+    banner('FINISH!', esc(level.name));
+    sfx.best();
+    confetti(80);
+    flash = 0.3;
+  }
+
+  function action() {
+    if (state === 'paused') pause();
+    else if (state === 'ready') { if (view === 'home') showLevels(); }
+    else if (state === 'over' && performance.now() >= canRestartAt) startRun(mode, levelIdx);
+    else if (state === 'cleared' && performance.now() >= canRestartAt) {
+      if (levelIdx + 1 < LEVELS.length) startRun('level', levelIdx + 1); else goMenu('levels');
+    }
+  }
+
+  function selectSkin(id) {
+    const s = skinById(id);
+    if (!isUnlocked(s)) {
+      const nm = $('suitName');
+      if (nm) nm.textContent = 'Locked - reach ' + s.need + ' pts';
+      return;
+    }
+    skinId = id;
+    store.set('tr-skin', id);
+    refreshSuits();
+  }
+
+  function toggleSound() {
+    muted = !muted;
+    store.set('tr-muted', muted ? '1' : '0');
+    btnSound.classList.toggle('muted', muted);
+    if (!muted) sfx.mile();
+  }
+
+  // ---- gameplay events ----
+  function onLand(vy) {
+    const ps = playerPos(0);
+    if (vy > 3) {
+      burst(ps.x, ps.y, 9, '#9fb4ff', px(130), 0.45, px(2.6), true, px(220));
+      squash = clamp(vy / 14, 0, 1);
+      if (vy > 8) shake = Math.max(shake, 2.5);
+      sfx.land(vy);
+    }
+    if (airVoid > 0) onClear(airVoid, ps);
+    airVoid = 0;
+  }
+
+  function onClear(n, ps) {
+    if (level) {                               // levels reward orbs, not points
+      popup(['NICE!', 'SMOOTH!', 'CLEAN!'][Math.floor(Math.random() * 3)], ps.x, ps.y - px(90), skinColor());
+      burst(ps.x, ps.y - px(20), 10, skinColor(), px(180), 0.55, px(2.4), true, px(120));
+      sfx.clear(1);
+      return;
+    }
+    combo++;
+    comboT = COMBO_TIME;
+    const mult = Math.min(5, combo);
+    const pts = (5 + 3 * Math.min(n, 6)) * mult;
+    bonus += pts;
+    popup('+' + pts + (mult > 1 ? '  x' + mult : ''), ps.x, ps.y - px(90), skinColor());
+    burst(ps.x, ps.y - px(20), 14, skinColor(), px(200), 0.6, px(2.6), true, px(120));
+    shake = Math.max(shake, 2);
+    sfx.clear(mult);
+  }
+
+  function orbScreen(o) {
+    const k = f / (o.z - camZ), a = o.s * DA - cam, r = R - (o.h + 0.5);
+    return { x: cx + r * Math.sin(a) * k, y: cy + r * Math.cos(a) * k, k };
+  }
+
+  function collectOrbs() {
+    const zp = camZ + CAM_D, zi = Math.floor(zp);
+    for (let i = zi - 1; i <= zi + 1; i++) {
+      const sl = slices.get(i);
+      if (!sl || !sl.orbs) continue;
+      for (const o of sl.orbs) {
+        if (o.taken) continue;
+        if (Math.abs(o.z - zp) < 0.75 && Math.abs(wrapN(p.s - o.s)) < 0.75 && Math.abs(p.h - o.h) < 1.0) {
+          o.taken = true;
+          orbCount++;
+          const sp = orbScreen(o);
+          burst(sp.x, sp.y, 8, '#ffd84a', px(150), 0.45, px(2.4), true, px(60));
+          sfx.orb(orbCount);
+        }
+      }
+    }
+  }
+
+  // ---- update ----
+  function followCamera(dt) {
+    cam += wrapPi(p.s * DA - cam) * Math.min(1, dt * 9);
+  }
+
+  function update(dt) {
+    speed = Math.min(cfgVMax, speed + cfgAccel * dt);
+    camZ += speed * dt;
+    runT += dt;
+    ensureGen(Math.floor(camZ) + MAX_D + 4);
+    cleanup();
+
+    const dir = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+    p.vs += (dir * LAT_SPEED - p.vs) * Math.min(1, dt * 14);
+    p.s = mod(p.s + p.vs * dt, N);
+
+    jumpBuf -= dt;
+    if ((keys.jump || jumpBuf > 0) && (p.grounded || p.coyote > 0)) {
+      p.vy = JUMP; p.grounded = false; p.coyote = 0; airVoid = 0; jumpBuf = 0;
+      sfx.jump();
+    }
+    p.vy -= GRAV * dt;
+    p.h += p.vy * dt;
+
+    let landed = false, landVy = 0;
+    if (p.h <= 0) {
+      if (p.h > -0.35 && p.vy <= 0) {
+        const zi2 = Math.floor(camZ + CAM_D);
+        if (tileAt(zi2, p.s - 0.22) || tileAt(zi2, p.s + 0.22)) {
+          if (!p.grounded) { landed = true; landVy = -p.vy; }
+          p.h = 0; p.vy = 0; p.grounded = true; p.coyote = 0.1;
+        } else {
+          p.grounded = false;
+        }
+      } else if (p.h <= -0.35) {
+        die();
+        return;
+      }
+    }
+    if (!p.grounded) p.coyote = Math.max(0, p.coyote - dt);
+
+    // count the empty slices we fly over, so jumping a gap earns a reward
+    const zi = Math.floor(camZ + CAM_D);
+    if (!p.grounded && zi !== lastZi && p.h > -0.35) {
+      if (!tileAt(zi, p.s - 0.22) && !tileAt(zi, p.s + 0.22)) airVoid++;
+    }
+    lastZi = zi;
+    if (landed) onLand(landVy);
+
+    if (level) {
+      collectOrbs();
+      const zp = camZ + CAM_D;
+      if (!halfShown && zp >= level.len / 2) {
+        halfShown = true;
+        banner('HALFWAY', Math.round(level.len / 2) + ' m');
+        sfx.mile();
+      }
+      if (zp >= level.len + 0.5) { win(); return; }
+    } else {
+      if (combo > 0) {
+        comboT -= dt;
+        if (comboT <= 0) combo = 0;
+      }
+      const dNow = Math.floor(camZ);
+      if (dNow >= nextMile) {
+        bonus += 25;
+        banner(nextMile + ' m', '+25 bonus');
+        sfx.mile();
+        nextMile += MILE;
+      }
+      const zn = Math.floor(camZ / ZONE_LEN);
+      if (zn > curZone) {
+        curZone = zn;
+        const z = ZONES[zn % ZONES.length];
+        targetHue = z.hue;
+        bonus += 50;
+        banner('ZONE ' + (zn + 1), z.name + ' &middot; +50');
+        sfx.zone();
+      }
+    }
+
+    trail.push({ a: p.s * DA, r: R - p.h - 0.45, z: camZ + CAM_D - 0.1, life: 1 });
+    if (trail.length > 40) trail.shift();
+
+    runPhase += dt * speed * 1.3;
+    followCamera(dt);
+    updateHud();
+  }
+
+  function updateDying(dt) {
+    dyingT += dt;
+    speed *= Math.pow(0.35, dt);
+    camZ += speed * dt;
+    ensureGen(Math.floor(camZ) + MAX_D + 4);
+    cleanup();
+    p.vy -= GRAV * dt;
+    p.h += p.vy * dt;
+    p.s = mod(p.s + p.vs * dt, N);
+    p.vs *= Math.pow(0.1, dt);
+    followCamera(dt);
+    if (dyingT > 1.0) finish();
+  }
+
+  function updateWon(dt) {                     // coast through the finish gate
+    winT += dt;
+    speed *= Math.pow(0.3, dt);
+    camZ += speed * dt;
+    p.vs *= Math.pow(0.05, dt);
+    p.s = mod(p.s + p.vs * dt, N);
+    p.vy -= GRAV * dt;
+    p.h += p.vy * dt;
+    if (p.h <= 0) { p.h = 0; p.vy = 0; p.grounded = true; }
+    runPhase += dt * speed * 1.3;
+    followCamera(dt);
+    if (winT > 1.7) showCleared();
+  }
+
+  function attract(dt) {
+    camZ += 4 * dt;
+    cam += 0.35 * dt;
+    targetHue = mod(targetHue + 14 * dt, 360);
+    ensureGen(Math.floor(camZ) + MAX_D + 4);
+    cleanup();
+  }
+
+  // ---- drawing ----
+  const sA = new Float64Array(N + 1), cA = new Float64Array(N + 1);
+
+  const planetSprite = { key: '', canvas: document.createElement('canvas'), size: 0 };
+
+  function buildPlanet(ph, pr, scale) {        // the planet is drawn once into a small picture, then stamped every frame
+    const size = Math.ceil(pr * 6);
+    const c = planetSprite.canvas;
+    c.width = c.height = Math.max(2, Math.round(size * scale));
+    const g2 = c.getContext('2d');
+    g2.setTransform(scale, 0, 0, scale, 0, 0);
+    g2.clearRect(0, 0, size, size);
+    const x = size / 2, y = size / 2;
+    let g = g2.createRadialGradient(x, y, pr * 0.8, x, y, pr * 2.6);
+    g.addColorStop(0, 'hsla(' + ph + ',85%,55%,0.28)');
+    g.addColorStop(1, 'hsla(' + ph + ',85%,55%,0)');
+    g2.fillStyle = g;
+    g2.fillRect(0, 0, size, size);
+    g2.lineWidth = pr * 0.16;
+    g2.strokeStyle = 'hsla(' + ph + ',55%,72%,0.4)';
+    g2.beginPath();
+    g2.ellipse(x, y, pr * 1.8, pr * 0.5, -0.4, Math.PI, TAU);   // back half of the ring
+    g2.stroke();
+    g = g2.createRadialGradient(x - pr * 0.4, y - pr * 0.4, pr * 0.1, x, y, pr * 1.1);
+    g.addColorStop(0, 'hsl(' + ph + ',75%,68%)');
+    g.addColorStop(0.55, 'hsl(' + ph + ',60%,34%)');
+    g.addColorStop(1, 'hsl(' + ph + ',60%,10%)');
+    g2.fillStyle = g;
+    g2.beginPath();
+    g2.arc(x, y, pr, 0, TAU);
+    g2.fill();
+    g2.strokeStyle = 'hsla(' + ph + ',55%,78%,0.55)';
+    g2.beginPath();
+    g2.ellipse(x, y, pr * 1.8, pr * 0.5, -0.4, 0, Math.PI);      // front half of the ring
+    g2.stroke();
+    planetSprite.size = size;
+  }
+
+  function drawPlanet(hue) {
+    const pr = W * 0.065;
+    if (pr < 1) return;
+    const x = W * 0.17 + Math.sin(cam * 0.05) * px(8), y = H * 0.32;
+    const phb = (Math.round(((hue + 170) % 360) / 4) * 4) % 360;   // the planet takes the opposite colour, so it stands out
+    const key = phb + '|' + Math.round(pr) + '|' + canvasScale;
+    if (planetSprite.key !== key) { planetSprite.key = key; buildPlanet(phb, pr, canvasScale); }
+    ctx.drawImage(planetSprite.canvas, x - planetSprite.size / 2, y - planetSprite.size / 2, planetSprite.size, planetSprite.size);
+  }
+  function drawStars() {
+    ctx.fillStyle = '#ffffff';
+    ctx.strokeStyle = '#cfe0ff';
+    for (const s of stars) {
+      const k = f / s.z, a = s.a - cam;
+      const sn = Math.sin(a), cs = Math.cos(a);
+      const x = cx + s.r * sn * k, y = cy + s.r * cs * k;
+      if (x < -40 || x > W + 40 || y < -40 || y > H + 40) continue;
+      const fade = clamp(1 - s.z / 93, 0, 1);
+      ctx.globalAlpha = fade * (0.65 + 0.35 * Math.sin(time * 3 + s.a * 17)) * 0.95;
+      const sz = (0.7 + 1.9 * fade) * (W / 800);
+      if (streakS > 0.05) {                  // stars stretch into streaks at high speed
+        const k2 = f / (s.z + streakS * 4);
+        ctx.lineWidth = sz;
+        ctx.beginPath();
+        ctx.moveTo(cx + s.r * sn * k2, cy + s.r * cs * k2);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      } else {
+        ctx.fillRect(x, y, sz, sz);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawBackground() {
+    ctx.globalAlpha = 1;
+    const bh = curHue.toFixed(0), bh2 = ((curHue + 16) % 360).toFixed(0);
+    const sky = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * 0.85);   // a rich, colourful sky that follows the level colour
+    sky.addColorStop(0, 'hsl(' + bh + ',78%,24%)');
+    sky.addColorStop(0.5, 'hsl(' + bh2 + ',70%,11%)');
+    sky.addColorStop(1, 'hsl(' + bh2 + ',75%,5%)');
+    ctx.fillStyle = sky;
+    ctx.fillRect(-30, -30, W + 60, H + 60);
+    if (quality < 2) {
+      ctx.globalCompositeOperation = 'lighter';
+      const aurora = ctx.createLinearGradient(0, 0, 0, H * 0.7);          // a soft glow along the top, like an aurora
+      aurora.addColorStop(0, 'hsla(' + bh2 + ',100%,50%,0.16)');
+      aurora.addColorStop(1, 'hsla(' + bh2 + ',100%,50%,0)');
+      ctx.fillStyle = aurora;
+      ctx.fillRect(0, 0, W, H * 0.7);
+      const clouds = quality === 0 ? 3 : 1;
+      const r = W * 0.44;
+      for (let i = 0; i < clouds; i++) {     // slow drifting nebula clouds, in colours close to the level's colour
+        const ang = cam * 0.25 + i * 2.2 + time * 0.05;
+        const nx = cx + Math.cos(ang) * W * 0.3, ny = cy * 0.9 + Math.sin(ang) * H * 0.2;
+        const hh = (mod(curHue + (i - 1) * 32, 360)).toFixed(0);
+        const g = ctx.createRadialGradient(nx, ny, 0, nx, ny, r);
+        g.addColorStop(0, 'hsla(' + hh + ',95%,50%,0.24)');
+        g.addColorStop(1, 'hsla(' + hh + ',95%,50%,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(nx - r, ny - r, r * 2, r * 2);      // only paint the square around the cloud
+      }
+      ctx.globalCompositeOperation = 'source-over';
+    }
+    drawPlanet(curHue);
+    drawStars();
+  }
+  // Tiles are collected into one shape per colour and drawn in a few big batches,
+  // instead of two drawing calls for every single tile. This is what keeps the game smooth.
+  const fillGroups = new Map(), frontGroups = new Map();
+  let colorCacheHue = '', tileColors = [[], []], frontColors = [];
+
+  function drawTunnel() {
+    const hs = curHue.toFixed(0);
+    const hsAlt = ((curHue + 14) % 360).toFixed(0);        // every other tile leans a little toward the next colour
+    if (hs !== colorCacheHue) { colorCacheHue = hs; tileColors = [[], []]; frontColors = []; }
+    for (let k = 0; k <= N; k++) {
+      const a = k * DA - cam;
+      sA[k] = Math.sin(a);
+      cA[k] = Math.cos(a);
+    }
+    const first = Math.floor(camZ);
+    const last = Math.floor(camZ + drawD);
+    const edges = [new Path2D(), new Path2D(), new Path2D(), new Path2D(), new Path2D()];
+    const grid = [new Path2D(), new Path2D(), new Path2D(), new Path2D(), new Path2D()];
+    const finishPaths = [new Path2D(), new Path2D()];
+    let anyFinish = false;
+    fillGroups.clear();
+    frontGroups.clear();
+
+    for (let i = last; i >= first; i--) {
+      const sl = slices.get(i);
+      if (!sl) continue;
+      const prev = slices.get(i - 1), next = slices.get(i + 1);
+      const z0 = i - camZ, z1 = i + 1 - camZ;
+      if (z1 <= NEAR) continue;
+      const zc0 = Math.max(z0, NEAR);
+      const fade = Math.min(1, (drawD - zc0) / 10);
+      if (fade <= 0) continue;
+      const aq = fade >= 0.999 ? 4 : Math.max(1, Math.round(fade * 4));   // far tiles fade in, in 4 steps
+      const k0 = f / zc0, k1 = f / z1;
+      const t = Math.min(1, zc0 / drawD);
+      const bucket = Math.min(4, Math.floor(t * 5));
+      const edge = edges[bucket], gridPath = grid[bucket];
+      const pulse = Math.pow(0.5 + 0.5 * Math.sin(i * 0.45 - time * 5), 8);   // light ripple racing along the tunnel
+
+      for (let k = 0; k < N; k++) {
+        if (!sl[k]) continue;
+        const kk = k + 1;
+        const xa0 = cx + R * sA[k] * k0,  ya0 = cy + R * cA[k] * k0;
+        const xb0 = cx + R * sA[kk] * k0, yb0 = cy + R * cA[kk] * k0;
+        const xa1 = cx + R * sA[k] * k1,  ya1 = cy + R * cA[k] * k1;
+        const xb1 = cx + R * sA[kk] * k1, yb1 = cy + R * cA[kk] * k1;
+        const shade = 0.74 + 0.26 * (cA[k] + cA[kk]) * 0.5;    // floor brightest, ceiling a little darker
+        const alt = (i + k) & 1;
+        const L = ((alt ? 46 : 41) + 20 * pulse) * shade * (1 - 0.42 * t);
+        const front = z0 >= NEAR && !(prev && prev[k]);
+        const qL = L < 0 ? 0 : (L > 126 ? 63 : Math.round(L / 2));
+        const gk = (aq * 64 + qL) * 2 + alt;
+
+        if (front) {                           // the exposed front edge, where there is no tile before this one
+          const ro = R + THICK;
+          let fp = frontGroups.get(gk);
+          if (!fp) { fp = new Path2D(); frontGroups.set(gk, fp); }
+          fp.moveTo(xa0, ya0);
+          fp.lineTo(xb0, yb0);
+          fp.lineTo(cx + ro * sA[kk] * k0, cy + ro * cA[kk] * k0);
+          fp.lineTo(cx + ro * sA[k] * k0, cy + ro * cA[k] * k0);
+          fp.closePath();
+        }
+
+        let tp;
+        if (sl.finish) {                       // the finish line: gold and white checkers
+          anyFinish = true;
+          tp = finishPaths[alt];
+        } else {
+          tp = fillGroups.get(gk);
+          if (!tp) { tp = new Path2D(); fillGroups.set(gk, tp); }
+        }
+        tp.moveTo(xa0, ya0);
+        tp.lineTo(xb0, yb0);
+        tp.lineTo(xb1, yb1);
+        tp.lineTo(xa1, ya1);
+        tp.closePath();
+
+        if (bucket < 3) {                      // thin grid lines: each shared edge once, and none on the far, tiny tiles
+          gridPath.moveTo(xa1, ya1);
+          gridPath.lineTo(xa0, ya0);
+          gridPath.lineTo(xb0, yb0);
+        }
+
+        // neon outline on every edge that borders empty space
+        if (!sl[(k + N - 1) % N]) { edge.moveTo(xa0, ya0); edge.lineTo(xa1, ya1); }
+        if (!sl[(k + 1) % N]) { edge.moveTo(xb0, yb0); edge.lineTo(xb1, yb1); }
+        if (front) { edge.moveTo(xa0, ya0); edge.lineTo(xb0, yb0); }
+        if (next && !next[k]) { edge.moveTo(xa1, ya1); edge.lineTo(xb1, yb1); }
+      }
+    }
+
+    ctx.lineJoin = 'miter';
+    for (const [gk, path] of frontGroups) {
+      const qL = (gk >> 1) & 63, aq = gk >> 7;
+      let col = frontColors[qL];
+      if (!col) col = frontColors[qL] = 'hsl(' + hs + ',80%,' + (qL * 2 * 0.62).toFixed(1) + '%)';
+      ctx.globalAlpha = aq / 4;
+      ctx.fillStyle = col;
+      ctx.fill(path);
+    }
+    for (const [gk, path] of fillGroups) {
+      const alt = gk & 1, qL = (gk >> 1) & 63, aq = gk >> 7;
+      let col = tileColors[alt][qL];
+      if (!col) col = tileColors[alt][qL] = 'hsl(' + (alt ? hsAlt : hs) + ',90%,' + (qL * 2) + '%)';
+      ctx.globalAlpha = aq / 4;
+      ctx.fillStyle = col;
+      ctx.fill(path);
+    }
+    ctx.globalAlpha = 1;
+    if (anyFinish) {
+      ctx.fillStyle = '#f5b60a';
+      ctx.fill(finishPaths[0]);
+      ctx.fillStyle = '#fff3c4';
+      ctx.fill(finishPaths[1]);
+    }
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'hsla(' + hs + ',100%,80%,0.42)';             // thin grid lines between tiles
+    for (let b = 0; b < 3; b++) ctx.stroke(grid[b]);
+
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineCap = 'round';
+    const u = W / 800;
+    for (let b = 0; b < 5; b++) {
+      const a = 1 - b * 0.17;
+      if (quality < 2) {
+        ctx.strokeStyle = 'hsla(' + hs + ',95%,55%,' + (0.16 * a).toFixed(3) + ')';
+        ctx.lineWidth = (8 - b * 1.3) * u;
+        ctx.stroke(edges[b]);
+      }
+      ctx.strokeStyle = 'hsla(' + hs + ',95%,72%,' + (0.95 * a).toFixed(3) + ')';
+      ctx.lineWidth = Math.max(0.8, (2.6 - b * 0.4) * u);
+      ctx.stroke(edges[b]);
+    }
+    const gr = ctx.createRadialGradient(cx, cy, 0, cx, cy, H * 0.4);   // glow at the far end of the tunnel
+    gr.addColorStop(0, 'hsla(' + hs + ',100%,62%,0.42)');
+    gr.addColorStop(1, 'hsla(' + hs + ',100%,62%,0)');
+    ctx.fillStyle = gr;
+    ctx.fillRect(cx - H * 0.4, cy - H * 0.4, H * 0.8, H * 0.8);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  // the glowing orb is drawn once, then stamped wherever it is needed
+  const orbSprite = document.createElement('canvas');
+  orbSprite.width = orbSprite.height = 96;
+  (function () {
+    const c = orbSprite.getContext('2d');
+    const g = c.createRadialGradient(48, 48, 0, 48, 48, 48);
+    g.addColorStop(0, 'rgba(255,225,120,0.95)');
+    g.addColorStop(0.35, 'rgba(255,190,50,0.5)');
+    g.addColorStop(1, 'rgba(255,160,0,0)');
+    c.fillStyle = g;
+    c.fillRect(0, 0, 96, 96);
+    c.fillStyle = '#ffd23f';                   // solid golden core so the orb stands out from the tunnel
+    c.strokeStyle = '#fff6c8';
+    c.lineWidth = 3;
+    c.beginPath();
+    c.arc(48, 48, 19, 0, TAU);
+    c.fill();
+    c.stroke();
+    c.fillStyle = 'rgba(255,255,255,0.85)';
+    c.beginPath();
+    c.arc(42, 42, 5.5, 0, TAU);
+    c.fill();
+  })();
+
+  function drawOrbs() {
+    if (!level) return;
+    const first = Math.floor(camZ), last = Math.floor(camZ + drawD);
+    for (let i = last; i >= first; i--) {
+      const sl = slices.get(i);
+      if (!sl || !sl.orbs) continue;
+      for (const o of sl.orbs) {
+        if (o.taken) continue;
+        const zc = o.z - camZ;
+        if (zc < NEAR) continue;
+        const sp = orbScreen(o);
+        const s = 0.28 * sp.k * (1 + 0.1 * Math.sin(time * 6 + o.z)) * 2.6;
+        ctx.globalAlpha = Math.min(1, (drawD - zc) / 10);
+        ctx.drawImage(orbSprite, sp.x - s, sp.y - s, s * 2, s * 2);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+  function drawTrail() {
+    if (!trail.length) return;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.fillStyle = skinColor();
+    for (const tp of trail) {
+      const zc = tp.z - camZ;
+      if (zc < NEAR) continue;
+      const k = f / zc, a = tp.a - cam;
+      ctx.globalAlpha = tp.life * 0.4;
+      ctx.beginPath();
+      ctx.arc(cx + tp.r * Math.sin(a) * k, cy + tp.r * Math.cos(a) * k, 0.1 * k * tp.life, 0, TAU);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  function rrect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawPlayer() {
+    const fade = state === 'dying' ? clamp(1 - dyingT / 0.8, 0, 1) : 1;
+    if (fade <= 0) return;
+    const col = skinColor();
+    const ground = playerPos(0);
+    const k = ground.k, a = ground.a;
+
+    if (p.h >= 0) {                            // light pool and shadow on the tile below
+      ctx.save();
+      ctx.translate(ground.x, ground.y);
+      ctx.rotate(-a);
+      ctx.globalCompositeOperation = 'lighter';
+      const lg = ctx.createRadialGradient(0, 0, 0, 0, 0, 1.5 * k);
+      ctx.scale(1, 0.3);
+      lg.addColorStop(0, col);
+      lg.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.globalAlpha = 0.32 / (1 + p.h);
+      ctx.fillStyle = lg;
+      ctx.beginPath();
+      ctx.arc(0, 0, 1.5 * k, 0, TAU);
+      ctx.fill();
+      ctx.restore();
+      ctx.save();
+      ctx.translate(ground.x, ground.y);
+      ctx.rotate(-a);
+      ctx.fillStyle = 'rgba(0,0,0,' + (0.4 / (1 + p.h)).toFixed(2) + ')';
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 0.32 * k * (1 - Math.min(p.h, 2) * 0.15), 0.09 * k, 0, 0, TAU);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    const pos = playerPos();
+    const u = k;
+    ctx.save();
+    ctx.translate(pos.x, pos.y);
+    ctx.rotate(-a + (state === 'dying' ? dyingT * 7 : 0));
+    ctx.globalAlpha = fade;
+    const sy = 1 + clamp(p.vy * 0.011, -0.1, 0.16) - 0.22 * squash;   // stretch in the air, squash on landing
+    const sx = 1 - clamp(p.vy * 0.006, -0.05, 0.08) + 0.16 * squash;
+    ctx.scale(sx, sy);
+
+    if (!p.grounded && state === 'running') {  // jetpack flame
+      ctx.globalCompositeOperation = 'lighter';
+      const fl = (0.18 + 0.1 * Math.random()) * u;
+      const fg = ctx.createLinearGradient(0, -0.42 * u, 0, -0.42 * u + fl * 3);
+      fg.addColorStop(0, 'rgba(255,230,150,0.95)');
+      fg.addColorStop(1, 'rgba(255,90,40,0)');
+      ctx.fillStyle = fg;
+      ctx.beginPath();
+      ctx.moveTo(-0.37 * u, -0.43 * u);
+      ctx.lineTo(-0.21 * u, -0.43 * u);
+      ctx.lineTo(-0.29 * u, -0.43 * u + fl * 3);
+      ctx.closePath();
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    ctx.fillStyle = '#c9d3ff';                  // legs
+    for (let i = 0; i < 2; i++) {
+      const lift = p.grounded ? Math.max(0, Math.sin(runPhase + i * Math.PI)) * 0.16 * u : 0.1 * u;
+      rrect((i ? 0.03 : -0.19) * u, -0.3 * u - lift, 0.16 * u, 0.3 * u, 0.05 * u);
+      ctx.fill();
+    }
+    ctx.fillStyle = col;                        // backpack
+    rrect(-0.4 * u, -0.86 * u, 0.22 * u, 0.46 * u, 0.07 * u);
+    ctx.fill();
+    const bg = ctx.createLinearGradient(-0.28 * u, 0, 0.28 * u, 0);   // body
+    bg.addColorStop(0, '#c4cffc');
+    bg.addColorStop(0.5, '#ffffff');
+    bg.addColorStop(1, '#aebbf2');
+    ctx.fillStyle = bg;
+    rrect(-0.28 * u, -0.99 * u, 0.56 * u, 0.76 * u, 0.22 * u);
+    ctx.fill();
+    ctx.lineWidth = Math.max(1, 0.03 * u);
+    ctx.strokeStyle = 'rgba(10,14,50,0.45)';
+    ctx.stroke();
+    ctx.fillStyle = col;                        // chest stripe
+    rrect(-0.27 * u, -0.46 * u, 0.54 * u, 0.07 * u, 0.03 * u);
+    ctx.fill();
+    const vg = ctx.createLinearGradient(0, -0.88 * u, 0, -0.58 * u);   // visor
+    vg.addColorStop(0, '#2a3a8f');
+    vg.addColorStop(1, '#0b1030');
+    ctx.fillStyle = vg;
+    rrect(-0.21 * u, -0.88 * u, 0.42 * u, 0.3 * u, 0.12 * u);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+    rrect(0.03 * u, -0.84 * u, 0.14 * u, 0.06 * u, 0.03 * u);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.beginPath();
+    ctx.arc(-0.1 * u, -0.67 * u, 0.025 * u, 0, TAU);
+    ctx.fill();
+    ctx.restore();
+    ctx.globalAlpha = 1;
+  }
+
+  function drawParts() {
+    for (let pass = 0; pass < 2; pass++) {
+      const addPass = pass === 0;
+      ctx.globalCompositeOperation = addPass ? 'lighter' : 'source-over';
+      for (const q of parts) {
+        if (q.add !== addPass) continue;
+        const a = clamp(q.life / q.max, 0, 1);
+        ctx.globalAlpha = a;
+        ctx.fillStyle = q.color;
+        if (addPass) {
+          ctx.beginPath();
+          ctx.arc(q.x, q.y, q.size * (0.4 + 0.6 * a), 0, TAU);
+          ctx.fill();
+        } else {
+          ctx.fillRect(q.x, q.y, q.size, q.size * 1.6);
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  function drawPopups() {
+    if (!popups.length) return;
+    ctx.textAlign = 'center';
+    ctx.lineJoin = 'round';
+    for (const q of popups) {
+      const a = clamp(q.life / q.max * 1.6, 0, 1);
+      const sc = 1 + 0.3 * clamp((q.life - q.max + 0.15) / 0.15, 0, 1);
+      ctx.globalAlpha = a;
+      ctx.font = '800 ' + (px(24) * sc).toFixed(1) + 'px Orbitron, system-ui, sans-serif';
+      ctx.lineWidth = px(5);
+      ctx.strokeStyle = 'rgba(2,4,20,0.7)';
+      ctx.strokeText(q.text, q.x, q.y);
+      ctx.fillStyle = q.color;
+      ctx.fillText(q.text, q.x, q.y);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function render() {
+    ctx.save();
+    if (!reduceMotion && shake > 0.3) ctx.translate((Math.random() - 0.5) * shake * 2, (Math.random() - 0.5) * shake * 2);
+    drawBackground();
+    drawTunnel();
+    drawOrbs();
+    drawTrail();
+    if (state !== 'ready') drawPlayer();
+    drawParts();
+    drawPopups();
+    ctx.restore();
+    if (!reduceMotion && flash > 0.01) {
+      ctx.fillStyle = 'rgba(255,255,255,' + flash.toFixed(2) + ')';
+      ctx.fillRect(0, 0, W, H);
+    }
+  }
+
+  // ---- input ----
+  const keyMap = {
+    ArrowLeft: 'left', a: 'left', A: 'left',
+    ArrowRight: 'right', d: 'right', D: 'right',
+    ArrowUp: 'jump', w: 'jump', W: 'jump', ' ': 'jump',
+  };
+
+  document.addEventListener('keydown', (e) => {
+    const m = keyMap[e.key];
+    if (m || e.key === 'Enter') e.preventDefault();
+    if (e.key === 'Escape' && state === 'ready' && view === 'levels') { showMenu(); return; }
+    if (e.key === 'p' || e.key === 'P' || e.key === 'Escape') { pause(); return; }
+    if (e.key === 'm' || e.key === 'M') { toggleSound(); return; }
+    if (state === 'ready' && /^[1-8]$/.test(e.key)) { startRun('level', Number(e.key) - 1); return; }
+    if (state === 'ready' && e.key === '9') { startRun('endless'); return; }
+    if (state !== 'running') {
+      if (!e.repeat && (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowUp')) action();
+      return;
+    }
+    if (m) keys[m] = true;
+    if (m === 'jump') jumpBuf = 0.12;       // a quick tap still counts, even just before landing
+  });
+  document.addEventListener('keyup', (e) => {
+    const m = keyMap[e.key];
+    if (m) keys[m] = false;
+  });
+  window.addEventListener('blur', () => {
+    keys.left = keys.right = keys.jump = false;
+    if (state === 'running') pause();
+  });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && state === 'running') pause(); });
+
+  overlay.addEventListener('click', (e) => {
+    const sk = e.target.closest('[data-skin]');
+    if (sk) { selectSkin(sk.dataset.skin); return; }
+    const lv = e.target.closest('[data-level]');
+    if (lv) { startRun('level', Number(lv.dataset.level)); return; }
+    const act = e.target.closest('[data-act]');
+    if (!act) return;
+    switch (act.dataset.act) {
+      case 'levels': showLevels(); break;
+      case 'endless': startRun('endless'); break;
+      case 'home': showMenu(); break;
+      case 'resume': pause(); break;
+      case 'retry': startRun(mode, levelIdx); break;
+      case 'next': startRun('level', levelIdx + 1); break;
+      case 'quit': goMenu(mode === 'level' ? 'levels' : 'home'); break;
+    }
+  });
+  btnSound.addEventListener('click', toggleSound);
+  btnPause.addEventListener('click', pause);
+  document.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) b.blur(); });
+  document.addEventListener('contextmenu', (e) => { if (e.target.closest('.stage, .touch')) e.preventDefault(); });   // no pop-up menu on a long press
+
+  function holdButton(id, key) {
+    const b = $(id);
+    const on = (e) => { e.preventDefault(); keys[key] = true; if (key === 'jump') jumpBuf = 0.12; };
+    const off = (e) => { e.preventDefault(); keys[key] = false; };
+    b.addEventListener('pointerdown', on);
+    b.addEventListener('pointerup', off);
+    b.addEventListener('pointercancel', off);
+    b.addEventListener('pointerleave', off);
+  }
+  holdButton('btnL', 'left');
+  holdButton('btnR', 'right');
+  holdButton('btnJ', 'jump');
+
+  // ---- main loop ----
+  let last = performance.now();
+  let errStreak = 0, recoveries = 0, healthyFrames = 0;
+  let slowFrames = 0, frameAvg = 1 / 60;
+
+  function setQuality(q) {                     // lower q = prettier, higher q = lighter on a slow computer
+    quality = q;
+    drawD = DRAW_D[q];
+    resize();
+  }
+
+  function watchSpeed(dt) {                    // if the game keeps running slowly, quietly switch to a lighter look
+    if (state === 'paused' || document.hidden) { slowFrames = 0; return; }
+    frameAvg += (dt - frameAvg) * 0.08;
+    if (frameAvg > 0.026 && quality < 2) {
+      if (++slowFrames > 45) { setQuality(quality + 1); slowFrames = 0; frameAvg = 1 / 60; }
+    } else {
+      slowFrames = Math.max(0, slowFrames - 2);
+    }
+  }
+
+  function advance(dt) {                       // move the game forward (no drawing)
+    if (state !== 'paused') {
+      time += dt;
+      if (state === 'running') {
+        // Always move in small steps. On a slow computer one frame can be long, and a big step would
+        // let the runner sink through a tile it should have landed on (an unfair fall).
+        const steps = Math.max(1, Math.ceil(dt / 0.02));
+        const h = dt / steps;
+        for (let i = 0; i < steps && state === 'running'; i++) update(h);
+      }
+      else if (state === 'dying') updateDying(dt);
+      else if (state === 'won') updateWon(dt);
+      else if (state === 'ready') attract(dt);
+      const fast = state === 'running' || state === 'dying' || state === 'won';
+      streakS += ((fast ? clamp((speed - 10) / 8, 0, 1) : 0) - streakS) * Math.min(1, dt * 3);
+      f = baseF * (1 + 0.07 * streakS);      // the view widens a little at high speed
+      updateHue(dt, state === 'ready' ? 4 : 1.5);
+      updateFx(dt);
+      moveStars(dt, fast ? speed * 0.4 : state === 'ready' ? 2 : 0.6);
+    }
+  }
+
+  function tick(dt) {
+    advance(dt);
+    render();
+  }
+
+  function showFatal() {
+    clearTimeout(hideTimer);
+    overlay.innerHTML = '<div class="card"><h2 class="over-title">OOPS</h2><div class="next" style="display:block">Something went wrong. Reload the page to keep playing.</div></div>';
+    overlay.classList.remove('hidden');
+  }
+
+  function recover() {                         // if something ever goes wrong, go back to the menu instead of freezing
+    recoveries++;
+    keys.left = keys.right = keys.jump = false;
+    if (recoveries > 3) { showFatal(); return; }
+    try { goMenu('home'); } catch (e) { showFatal(); }
+  }
+
+  function frame(now) {
+    requestAnimationFrame(frame);              // schedule the next frame first, so the loop can never stop
+    const dt = clamp((now - last) / 1000, 0, 0.05);
+    last = now;
+    try {
+      tick(dt);
+      watchSpeed(dt);
+      errStreak = 0;
+      if (++healthyFrames > 600) { recoveries = 0; healthyFrames = 0; }
+    } catch (err) {
+      healthyFrames = 0;
+      if (++errStreak === 1 && window.console) console.error(err);
+      if (errStreak >= 3) { errStreak = 0; recover(); }
+    }
+  }
+
+  btnSound.classList.toggle('muted', muted);
+  window.addEventListener('resize', resize);
+  resize();
+  reset();
+  setHudMode();
+  showMenu();
+  if (document.fonts && document.fonts.load) { const fp = document.fonts.load('800 20px Orbitron'); if (fp && fp.catch) fp.catch(function () {}); }
+  requestAnimationFrame(frame);
+})();
+</script>
+<script>
+// lets Chrome offer "Install" and keeps the game working offline once it has loaded
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0 && window.top === window) {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+}
+</script>
+</body>
+</html>
